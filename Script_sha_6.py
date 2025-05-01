@@ -3,6 +3,7 @@ import hashlib
 import time
 import random
 
+
 def hash_password(password):
     return hashlib.sha256(password.encode('utf-8')).hexdigest()
 
@@ -22,19 +23,17 @@ sucesso = 0
 falha = 0
 
 for nome, password in utilizadores_originais:
-    hash_ger = hash_password(password)
 
     cursor.execute("SELECT password FROM User_Sha256 WHERE name = ?", (nome,))
     resultado = cursor.fetchone()
 
     if resultado:
-        hash_na_bd = resultado[0]
-        if hash_na_bd == hash_ger:
-            sucesso += 1
-        else:
-            falha += 1
+        autenticado = (hash_password(password) == resultado[0])
+        sucesso+= 1
+        print(str(sucesso)+ str(autenticado))
     else:
-        falha += 1  
+        print(f"Utilizador '{nome}' não encontrado (deu erro).")
+        falha+=0
 
     total_testes += 1
 

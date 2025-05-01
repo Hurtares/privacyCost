@@ -10,7 +10,7 @@ cursor = conn.cursor()
 
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS User_Sha256 (
+CREATE TABLE IF NOT EXISTS Users_Dup(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     address TEXT,
@@ -24,11 +24,10 @@ inseridos = 0
 
 for nome, morada, password in dados_originais:
     inseridos+=1
-    password_hash = hash_password(password)
     cursor.execute("""
-        INSERT INTO User_Sha256 (name, address, password)
+        INSERT INTO Users_Dup(name, address, password)
         VALUES (?, ?, ?)
-    """, (nome, morada, password_hash))
+    """, (nome, morada,password))
     if inseridos%1000 == 0:
         print(inseridos)
 

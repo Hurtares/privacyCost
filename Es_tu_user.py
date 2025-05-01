@@ -17,13 +17,13 @@ inicio = time.time()
 comparacoes = 0
 
 for nome, senha_correta in utilizadores:
-    cursor.execute("SELECT password FROM users WHERE name = ?", (nome,))
+    cursor.execute("SELECT password FROM Users_Dup WHERE name = ?", (nome,))
     resultado = cursor.fetchone() # fetchone buscar só a primeira linha do resultado retornando uma sequencia unica
 
     if resultado:
-        password = resultado[0]
-        autenticado = (senha_correta == password)
+        autenticado = (senha_correta == resultado[0])
         comparacoes += 1
+        print(str(comparacoes) + str(autenticado))
     else:
         print(f"Utilizador '{nome}' não encontrado (deu erro).")
 
