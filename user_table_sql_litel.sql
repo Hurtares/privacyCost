@@ -58,8 +58,8 @@ INSERT INTO users (id,name, address, password) VALUES
 (49,'Ximena Lopes', 'Av. das Águas, 135', 'vw1*ite5hb'),
 (50,'Yuri Matos', 'Rua das Nogueiras, 136', 'wTwz4SPlf0');
 */
-
- SELECT * FROM users;
+--DROP TABLE User_Sha256;
+ --SELECT * FROM users;
 -- DELETE FROM users;
 /*CAPUTA DE TRIGEEER QUE DEU ESTA MERDA DESCOBRI instalas a extensao sqllite se der erro quando fazes open dataset:
 https://cursos.alura.com.br/forum/topico-sugestao-dificuldade-em-utilizar-a-extensao-sqlite-do-vscode-352087

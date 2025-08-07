@@ -4,9 +4,9 @@ conn = sqlite3.connect("Dados.db")
 cursor = conn.cursor()
 
 cursor.execute("""
-    DELETE FROM users
+    DELETE FROM User_Sha256
     WHERE id IN (
-        SELECT id FROM users ORDER BY id DESC LIMIT 10
+        SELECT id FROM users ORDER BY id DESC LIMIT 60
     );
 """)
 

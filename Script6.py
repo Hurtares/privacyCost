@@ -24,7 +24,7 @@ def gera_password(tamanho=15):
     return ''.join(random.choice(chars) for _ in range(tamanho))
 
 
-quantos_users = 100000
+quantos_users = 10000
 inseridos = 0
 tentativas = 0
 max_tentativas = 500
